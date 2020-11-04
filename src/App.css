@@ -1,17 +1,21 @@
 .item {
   position: relative;
   display: inline-block;
+  font-size: 0;
+  float: left;
   margin-bottom: 200px;
 }
 
 .image {
   width: 800px;
+  display: block;
+  float: left;
 }
 
 .name {
   position: absolute;
   left: 85px;
-  top: 240px;
+  top: 260px;
   font-family: KaiTi;
   font-weight: bolder;
   font-size: 22px;

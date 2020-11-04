@@ -22,7 +22,7 @@ function App() {
       {names.map((item) => (
         <div className="item" name="王丹.png" alt="王丹.png">
           <img src={jiangzhuang} alt="" className="image" />
-          <p className="name">{item}</p>
+          <span className="name">{item}</span>
         </div>
       ))}
     </div>
