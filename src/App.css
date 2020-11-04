@@ -3,6 +3,8 @@
   display: inline-block;
   font-size: 0;
   float: left;
+  width: 800px;
+  height: 589px;
   margin-bottom: 200px;
 }
 
@@ -10,6 +12,7 @@
   width: 800px;
   display: block;
   float: left;
+  height: 589px;
 }
 
 .name {
@@ -19,4 +22,16 @@
   font-family: KaiTi;
   font-weight: bolder;
   font-size: 22px;
+}
+
+button {
+  width: 200px;
+  height: 50px;
+  float: left;
+  margin-left: 50px;
+  margin-top: 225px;
+}
+
+button:hover {
+  cursor: pointer;
 }

@@ -2,27 +2,42 @@ import React, { useEffect } from "react";
 import jiangzhuang from "./images/image.png";
 import "./App.css";
 import names from "./images/name.json";
-import domtoimage from "dom-to-image";
+import html2canvas from "html2canvas";
+import saveAs from "file-saver";
 
 function App() {
-  useEffect(() => {
-    const node = document.getElementsByClassName("item");
+  function handleClick(imageName, e) {
+    const dom = e.currentTarget;
+    const targetItem = dom.getElementsByClassName("item")[0];
 
-    console.log("node", node);
-    // domtoimage.toPng(node[0]).then((dataUrl) => {
-    //   var link = document.createElement("a");
-    //   link.download = "my-image-name.jpeg";
-    //   link.href = dataUrl;
-    //   link.click();
-    // });
-  }, []);
+    console.log("e", targetItem);
+
+    html2canvas(targetItem, {
+      useCORS: true,
+      allowTaint: true,
+      scrollX: 0,
+      scrollY: -window.scrollY,
+    }).then((canvas) => {
+      canvas.toBlob(function (blob) {
+        saveAs(blob, imageName);
+      });
+    });
+  }
 
   return (
     <div className="App">
       {names.map((item) => (
-        <div className="item" name="王丹.png" alt="王丹.png">
-          <img src={jiangzhuang} alt="" className="image" />
-          <span className="name">{item}</span>
+        <div className="box" onClick={(e) => handleClick(`${item}.png`, e)}>
+          <div className="item">
+            <img
+              src="https://static.tuture.co/u/7e511f48-f17e-4a4f-a04f-45ae08eb73ea.png"
+              alt="王丹"
+              name="王丹"
+              className="image"
+            />
+            <span className="name">{item}</span>
+          </div>
+          <button>下载</button>
         </div>
       ))}
     </div>
