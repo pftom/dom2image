@@ -12,10 +12,16 @@ function App() {
 
     console.log("e", targetItem);
 
+    var e_width = targetItem.offsetWidth;
+    var e_height = targetItem.offsetHeight;
+    var e_x_offset = window.scrollX + targetItem.getBoundingClientRect().left;
+    var e_y_offset = window.scrollY + targetItem.getBoundingClientRect().top;
+
     html2canvas(targetItem, {
       useCORS: true,
       allowTaint: true,
-      scrollX: 0,
+      logging: true,
+      scrollX: -window.scrollX,
       scrollY: -window.scrollY,
     }).then((canvas) => {
       canvas.toBlob(function (blob) {
