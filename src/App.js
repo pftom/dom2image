@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import jiangzhuang from "./images/image.png";
+import "./App.css";
+import names from "./images/name.json";
+import domtoimage from "dom-to-image";
 
 function App() {
+  useEffect(() => {
+    const node = document.getElementsByClassName("item");
+
+    console.log("node", node);
+    // domtoimage.toPng(node[0]).then((dataUrl) => {
+    //   var link = document.createElement("a");
+    //   link.download = "my-image-name.jpeg";
+    //   link.href = dataUrl;
+    //   link.click();
+    // });
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {names.map((item) => (
+        <div className="item" name="王丹.png" alt="王丹.png">
+          <img src={jiangzhuang} alt="" className="image" />
+          <p className="name">{item}</p>
+        </div>
+      ))}
     </div>
   );
 }
