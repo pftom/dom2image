@@ -35,12 +35,7 @@ function App() {
       {names.map((item) => (
         <div className="box" onClick={(e) => handleClick(`${item}.png`, e)}>
           <div className="item">
-            <img
-              src="https://static.tuture.co/u/7e511f48-f17e-4a4f-a04f-45ae08eb73ea.png"
-              alt="王丹"
-              name="王丹"
-              className="image"
-            />
+            <img src={jiangzhuang} alt="王丹" name="王丹" className="image" />
             <span className="name">{item}</span>
           </div>
           <button>下载</button>
