@@ -1,21 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import jiangzhuang from "./images/image.png";
 import "./App.css";
 import names from "./images/name.json";
 import html2canvas from "html2canvas";
 import saveAs from "file-saver";
 
+let cnt = 0;
+
 function App() {
+  let [domArr, setDomArr] = useState([]);
+  let [timer, setTimer] = useState(null);
   function handleClick(imageName, e) {
     const dom = e.currentTarget;
     const targetItem = dom.getElementsByClassName("item")[0];
-
-    console.log("e", targetItem);
-
-    var e_width = targetItem.offsetWidth;
-    var e_height = targetItem.offsetHeight;
-    var e_x_offset = window.scrollX + targetItem.getBoundingClientRect().left;
-    var e_y_offset = window.scrollY + targetItem.getBoundingClientRect().top;
 
     html2canvas(targetItem, {
       useCORS: true,
@@ -29,6 +26,24 @@ function App() {
       });
     });
   }
+
+  // useEffect(() => {
+  //   if (!timer) {
+  //     const nowDomArr = Array.from(document.getElementsByTagName("button"));
+  //     setDomArr(domArr);
+
+  //     let nowTimer = setInterval(() => {
+  //       nowDomArr[cnt].click();
+  //       cnt++;
+  //     }, 1000);
+
+  //     setTimer(nowTimer);
+  //   } else {
+  //     if (cnt === 106) {
+  //       clearInterval(timer);
+  //     }
+  //   }
+  // }, [cnt]);
 
   return (
     <div className="App">
