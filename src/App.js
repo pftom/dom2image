@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import jiangzhuang from "./images/image.png";
+import jiangzhuang from "./images/image.jpg";
 import "./App.less";
 import html2canvas from "html2canvas";
 import saveAs from "file-saver";
