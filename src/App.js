@@ -38,6 +38,18 @@ function App() {
   console.log("nameArr", nameArr, nameArr.length);
 
   useEffect(() => {
+    if (nameArr && nameArr.length > 0) {
+      const items = document.getElementsByClassName("item");
+      const image = document.getElementsByClassName("image")[0];
+      const imageBoundings = image.getBoundingClientRect();
+
+      Array.from(items).forEach((item) => {
+        item.style.width = imageBoundings.width;
+      });
+    }
+  }, [nameArr.length]);
+
+  useEffect(() => {
     if (nameArr.length && clickConfirm) {
       const nowDomArr = Array.from(document.getElementsByTagName("button"));
       setDomArr(domArr);
